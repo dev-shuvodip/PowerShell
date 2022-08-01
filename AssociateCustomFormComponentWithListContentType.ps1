@@ -14,8 +14,7 @@ $clientContext = Get-PnPContext
 $componentId = "a6b9efd2-2dbe-4f45-807f-e3a527b9fdea"
 
 #Give target content type name over here
-$targetContentType = Get-PnPContentType -Identity "Item" -List "Requests Workflow"
-
+$targetContentType = Get-PnPContentType -Identity "Request Item"
 #Set target content type read only
 $targetContentType.NewFormClientSideComponentId = $componentId
 $targetContentType.EditFormClientSideComponentId = $componentId
