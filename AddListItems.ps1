@@ -24,7 +24,9 @@ Add-PnPContentTypeToList -List $ListName -ContentType $ContentType -DefaultConte
 Add-PnPField -List $ListName -DisplayName "Request ID" -InternalName "RequestID" -Type Text -Required -AddToDefaultView
 Add-PnPField -List $ListName -DisplayName "Received Date" -InternalName "ReceivedDate" -Type DateTime -AddToDefaultView
 Add-PnPField -List $ListName -DisplayName "Status" -InternalName "Status" -Type Choice -Choices "In-transit", "Received", "Processing", "Processed", "Completed" -AddToDefaultView
-Add-PnPField -List $ListName -DisplayName "Approved" -InternalName "Approved" -Type Boolean -AddToDefaultView #>
+Add-PnPField -List $ListName -DisplayName "Approved" -InternalName "Approved" -Type Boolean -AddToDefaultView 
+
+#>
 
 #  Create arrays for the Choice and Yes/No fields
 $Field = Get-PnPField -Identity "Status" -List $ListName
@@ -154,7 +156,7 @@ $statusChoices.Choices | ForEach-Object ($_) {
 }
 
 #  Add items to the list
-for ($i = 1; $i -le 5; $i++) {
+for ($i = 1; $i -le 2000; $i++) {
 	$choiceValue = $statusChoices.Choices | Get-Random
 	$approvedStatus = $boolArray | Get-Random
 	$CurrentDate = Get-Date -Format "o"
